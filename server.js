@@ -4,16 +4,24 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+const postsController = require('./controllers/posts-controller')
+const collectionController = require('./Controllers/collection-controller')
+
+
+require('dotenv').config()
+require('./config/db.connection')
+
+app.use(express.json())
+
+app.use(cors())
+app.use(morgan('dev'))
+
+app.use('/posts', postsController)
+
+app.use('/collection', collectionController)
+
 app.get("/", (req, res) => {
     res.send("Hello World");
-})
-
-app.get("/posts", (req, res) => {
-    res.send("testing1");
-})
-
-app.get("/collection/",(req, res) => {
-    res.send("testing2");
 })
 
 const PORT = process.env.PORT || 8000;
