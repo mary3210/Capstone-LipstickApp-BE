@@ -7,14 +7,13 @@ app.use(cors());
 const postsController = require('./controllers/posts-controller')
 const collectionController = require('./Controllers/collection-controller')
 
-
 require('dotenv').config()
 require('./config/db.connection')
 
 app.use(express.json())
 
 app.use(cors())
-app.use(morgan('dev'))
+
 
 app.use('/posts', postsController)
 

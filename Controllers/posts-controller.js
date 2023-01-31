@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
+router.use(express.json())
 
-const { Post } = require('../models')
+const { Post } = require(`../models`)
 
 const db = require('../models')
 
@@ -9,6 +10,7 @@ console.log(Post)
 
 router.get('/', async (req, res) => {
     try {
+        console.log('a')
         const allPosts = await Post.find({})
         res.status(200).json(allPosts)
     } catch (err) {
