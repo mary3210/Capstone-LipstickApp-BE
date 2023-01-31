@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const PostSchema = new mongoose.Schema(
     {
         image: {type: String, required: true},
+        name: {type: String, required: true},
         review: { type: String, required: true},
         tags: [String],
         rating: Number,
