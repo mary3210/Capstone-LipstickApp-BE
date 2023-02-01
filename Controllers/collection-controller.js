@@ -7,8 +7,8 @@ const db = require('../models')
 router.get('/', async (req, res) => {
     try {
         console.log('a')
-        const allPosts = await Post.find({})
-        res.status(200).json(allPosts)
+        const allCollection = await Collection.find({})
+        res.status(200).json(allCollection)
     } catch (err) {
         res.status(400).json({ error: err})
     }
