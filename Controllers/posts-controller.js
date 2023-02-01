@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
         }
     })
 
-    router.get('/id', async (req, res) => {
+    router.get('/:id', async (req, res) => {
         try {
             const foundPost = await Post.findById(req.params.id)
             res.status(200).json(foundPost)
@@ -41,6 +41,8 @@ router.get('/', async (req, res) => {
         try {
     
             const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true })
+            console.log('meow', req.body)
+            console.log('potatopoato ', updatedPost)
             res.status(200).json(updatedPost)
     
         } catch (err) {
