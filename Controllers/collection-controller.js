@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const foundCollection = await Collection.findById(req.params.id)
+        const foundCollection = await Collection.findById(req.params.id).populate("posts")
         res.status(200).json(foundCollection)
     } catch (err) {
         res.status(400).json({ error: err })
