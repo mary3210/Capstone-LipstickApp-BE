@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
-const postsController = require('./controllers/posts-controller')
+const postsController = require('./Controllers/posts-controller')
 const collectionController = require('./Controllers/collection-controller')
 
 require('dotenv').config()
